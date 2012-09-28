@@ -39,17 +39,3 @@ rabbitmq_user "guest" do
   permissions "\".*\" \".*\" \".*\""
   action :set_permissions
 end
-
-monitoring_procmon "rabbitmq-server" do
-  service_name=platform_options["rabbitmq_service"]
-  process_name platform_options["rabbitmq_service_regex"]
-  script_name service_name
-end
-
-monitoring_metric "rabbitmq-server-proc" do
-  type "proc"
-  proc_name "rabbitmq-server"
-  proc_regex platform_options["rabbitmq_service_regex"]
-
-  alarms(:failure_min => 1.0)
-end
