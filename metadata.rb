@@ -7,6 +7,5 @@ version           "1.0.3"
   supports os
 end
 
-%w{ rabbitmq osops-utils }.each do |dep|
-  depends dep
-end
+depends "rabbitmq", "> 1.6.2"
+depends "osops-utils"
