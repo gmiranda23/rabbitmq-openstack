@@ -21,6 +21,6 @@ end
 
 rabbitmq_user "guest" do
   vhost "/"
-  permissions "\".*\" \".*\" \".*\""
+  permissions "\".\\*\" \".\\*\" \".\\*\""
   action :set_permissions
 end
